@@ -25,3 +25,24 @@ Output:
 2 4 5 6 7 8 9 11 13
 
 """
+
+
+n = int(input())
+coins = list(map(int, input().split()))
+
+res = set()
+for c in coins:
+    if not res:
+        res.add(c)
+        continue
+    temp = []
+    for x in res:
+        temp.append(x+c)
+
+    res.add(c)
+    for x in temp:
+        res.add(x)
+
+
+print(len(res))
+print(*sorted(res))
